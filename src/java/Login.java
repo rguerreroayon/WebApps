@@ -32,13 +32,16 @@ public class Login extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
-            
-            if(request.getParameter("usuario").equals("Administrador") && request.getParameter("password").equalsIgnoreCase("Password")){
+              
+            if(request.getParameter("usuario").equals("Administrador") && request.getParameter("contrasena").equals("Password")){
+                out.println("ITS WORKING");
                 response.sendRedirect("videocentro.html");
             }else{
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('User or password incorrect');");
+                out.println("location='index.html';");
+                out.println("</script>");
                 response.sendRedirect("index.html");
-                out.println("<h1> Wrong Password, TRY AGAIN NIBBA");
             }
             
             
