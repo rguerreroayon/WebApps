@@ -7,7 +7,7 @@
 }
 
 body{
-	background: #313D52;
+	background: url(../imagenes/background.png);
 }
 
 header{
@@ -64,4 +64,37 @@ header{
 .menu li:hover .submenu{
 	visibility: visible;
 	opacity: 1;
+}
+
+/* Forms */
+
+input[type="text"], input[type="email"] {
+    width: 400px
+}
+
+textArea {
+    width: 400px;
+    height: 200px;
+    max-height: 200px;
+    max-width: 400px
+}
+
+select {
+    width: 400px;
+    text-align: center;
+    text-transform: uppercase
+}
+
+.main .articles {
+    width: 60%;
+    margin: 100px auto;
+    padding: 4%;
+    background-color: white
+}
+
+footer {
+    background: black;
+    text-align: center;
+    padding: 1px 1px;
+    clear: both
 }
