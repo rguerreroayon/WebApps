@@ -13,7 +13,6 @@
         <link href="../../css/style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        
         <header>
             <nav class="navegacion">
                 <ul class="menu">
@@ -61,20 +60,24 @@
                 <form action="">
                     <h5>Agregar Clientes</h5>
                     <br>
+                    
+                    <p>Número de credencial:</p>
+                    <input type="text" name="numCredencial" pattern="[0-9]{10}">
 
                     <p>Nombre del cliente:</p>
-                    <input type="text" name="nombre" pattern="[a-Z]+">
+                    <input type="text" name="nombre" pattern="[a-Z]+{35}">
                     
                     <p>Dirección:</p>
-                    <input type="text" name="direccion" pattern="[a-Z]+">
+                    <input type="text" name="direccion" pattern="[a-Z]+{35}">
                     
                     <p>Teléfono:</p>
-                    <input type="text" name="telefono" pattern="[0-9]{10}">
+                    <input type="text" name="telefono" pattern="[0-9]{15}">
                     <br>
 
                     <input type="submit" value="Enviar" />
                     <input type="reset" value="Restablecer" />
                 </form>
-        
+            </section>
+        </section>
     </body>
 </html>

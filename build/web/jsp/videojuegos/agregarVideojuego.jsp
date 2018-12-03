@@ -13,11 +13,11 @@
         <link href="../../css/style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        
+
         <header>
             <nav class="navegacion">
                 <ul class="menu">
-                    
+
                     <li><a href="#">Videojuegos</a>
                         <ul class="submenu">
                             <li><a href="#">Agregar Videojuego</a></li>
@@ -31,16 +31,16 @@
                             <li><a href="#">Consultar Lista de Clientes</a></li>
                             <li><a href="#">Consultar Cliente Especifíco</a></li>
                         </ul>
-                    
+
                     </li>
-                    
+
                     <li><a href="#">Inventario</a>
                         <ul class="submenu">
                             <li><a href="#">Agregar Videojuego al inventario</a></li>
                             <li><a href="#">Quitar Videojuego del inventario</a></li>
                         </ul>
                     </li>
-                    
+
                     <li><a href="#">Rentas</a>
 
                         <ul class="submenu">
@@ -50,7 +50,7 @@
                             <li><a href="#">Consultar rentas por periodo de fecha</a></li>
                         </ul>
                     </li>
-                    
+
                     <li><a href="#">Contacto</a></li>
                 </ul>
             </nav>
@@ -62,9 +62,12 @@
                     <h5>Agregar Videojuego</h5>
                     <br>
 
+                    <p>Número de catálogo:</p>
+                    <input type="text" name="numCatalogo" pattern="[0-9]{10}">
+
                     <p>Nombre del videojuego:</p>
-                    <input type="text" name="nombre" pattern="[a-Z]+">
-                    
+                    <input type="text" name="titulo" pattern="[a-Z]+{35}">
+
                     <p>Género:</p>
                     <select name="genero">
                         <option value="Acción">Acción</option>
@@ -76,7 +79,7 @@
                         <option value="Novela">Novela</option>
                         <option value="Indie">Indie</option>
                     </select> <br>
-                    
+
                     <p>Clasificación:</p>
                     <select name="clasificación">
                         <option value="EC">EC - Niños</option>
@@ -85,7 +88,7 @@
                         <option value="M">M - +17 Mayores</option>
                         <option value="A">A - +18 Solo adultos</option>
                     </select> <br>
-                    
+
                     <p>Consola:</p>
                     <select name="consola">
                         <option value="PC">PC Master Race</option>
@@ -94,10 +97,10 @@
                         <option value="Nintendo Switch">Nintendo Switch</option>
                         <option value="Nintendo 3DS">Nintendo 3DS</option>
                     </select> <br>
-                    
+
                     <p>Fabricante:</p>
-                    <input type="text" name="fabricante">
-                    
+                    <input type="text" name="fabricante" maxlength="35">
+
                     <p>Versión:</p>
                     <input type="number" name="version" placeholder="1" min="1">
                     <br/>
@@ -105,6 +108,7 @@
                     <input type="submit" value="Enviar" />
                     <input type="reset" value="Restablecer" />
                 </form>
-        
+            </section>
+        </section>
     </body>
 </html>

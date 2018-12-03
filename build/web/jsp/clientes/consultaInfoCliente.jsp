@@ -1,16 +1,16 @@
 <%-- 
-    Document   : agregarCliente
-    Created on : 2/12/2018, 04:39:40 PM
-    Author     : rob
+    Document   : consultaInfoCliente
+    Created on : 2/12/2018, 09:16:30 PM
+    Author     : Alberto
 --%>
 
+<%@page import="persistencia.PersistenciaBD"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <link href="../../css/style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <header>
@@ -54,29 +54,17 @@
                 </ul>
             </nav>
         </header>
-
+        
         <section class="main">
             <section class="articles">
-                <form action="">
-                    <h5>Agregar Clientes</h5>
-                    <br>
-                    
-                    <p>Número de credencial:</p>
-                    <input type="text" name="numCredencial" pattern="[0-9]{10}">
-
-                    <p>Nombre del cliente:</p>
-                    <input type="text" name="nombre" pattern="[a-Z]+{35}">
-                    
-                    <p>Dirección:</p>
-                    <input type="text" name="direccion" pattern="[a-Z]+{35}">
-                    
-                    <p>Teléfono:</p>
-                    <input type="text" name="telefono" pattern="[0-9]{15}">
-                    <br>
-
-                    <input type="submit" value="Enviar" />
-                    <input type="reset" value="Restablecer" />
-                </form>
+                <%
+                    PersistenciaBD clientes = new PersistenciaBD();
+                    for (int i = 0; i < clientes.consultarRentasVideojuegos().size(); i++) {
+                        out.print("<ol>");
+                        out.print("<li><h5>" + clientes.consultarClientes().get(i).toString() + "</h5></li>");
+                        out.print("</ol>");
+                    }
+                %>
             </section>
         </section>
     </body>
