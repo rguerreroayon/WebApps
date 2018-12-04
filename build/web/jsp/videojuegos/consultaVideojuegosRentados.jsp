@@ -62,7 +62,7 @@
                     PersistenciaBD clientes = new PersistenciaBD();
                     for (int i = 0; i < clientes.consultarRentasVideojuegos().size(); i++) {
                         out.print("<ol>");
-                        out.print("<li><h5>" + clientes.consultarRentasVideojuegos().get(i) + "</h5></li>");
+                        out.print("<li><h5>" + clientes.consultarRentasVideojuegos().get(i).toString() + "</h5></li>");
                         out.print("</ol>");
                     }
                 %>

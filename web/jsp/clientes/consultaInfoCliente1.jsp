@@ -1,18 +1,15 @@
 <%-- 
-    Document   : consultaInfoCliente
-    Created on : 2/12/2018, 09:16:30 PM
-    Author     : Alberto
+    Document   : consultaInfoCliente1
+    Created on : 3/12/2018, 09:57:54 PM
+    Author     : rob
 --%>
 
-<%@page import="persistencia.PersistenciaBD"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <link rel="stylesheet" type="text/css" href="../../css/style.css">
-
     </head>
     <body>
         <header>
@@ -59,14 +56,16 @@
         
         <section class="main">
             <section class="articles">
-                <%
-                    PersistenciaBD clientes = new PersistenciaBD();
-                    for (int i = 0; i < clientes.consultarRentasVideojuegos().size(); i++) {
-                        out.print("<ol>");
-                        out.print("<li><h5>" + clientes.consultarClientes().get(i).toString() + "</h5></li>");
-                        out.print("</ol>");
-                    }
-                %>
+                <form action="">
+                    <h5>Consultar información de cliente por ID:</h5>
+                    <br>
+                    
+                    <p>ID Cliente:</p>
+                    <input type="text" name="numCredencial" pattern="[0-9]{10}">
+
+                    <input type="submit" value="Consultar" />
+                    <input type="reset" value="Restablecer" />
+                </form>
             </section>
         </section>
     </body>

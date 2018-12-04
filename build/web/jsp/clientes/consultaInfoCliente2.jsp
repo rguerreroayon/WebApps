@@ -1,7 +1,7 @@
 <%-- 
-    Document   : consultaRentados
-    Created on : 2/12/2018, 04:40:49 PM
-    Author     : rob
+    Document   : consultaInfoCliente
+    Created on : 2/12/2018, 09:16:30 PM
+    Author     : Alberto
 --%>
 
 <%@page import="persistencia.PersistenciaBD"%>
@@ -14,7 +14,8 @@
         <link rel="stylesheet" type="text/css" href="../../css/style.css">
 
     </head>
-    <header>
+    <body>
+        <header>
             <nav class="navegacion">
                 <ul class="menu">
                     
@@ -60,11 +61,19 @@
             <section class="articles">
                 <%
                     PersistenciaBD clientes = new PersistenciaBD();
+                    boolean validacion = false;
+                    String numCredencial = request.getParameter("numCredencial");
                     for (int i = 0; i < clientes.consultarRentasVideojuegos().size(); i++) {
-                        out.print("<ol>");
-                        out.print("<li><h5>" + clientes.consultarRentasVideojuegos().get(i).toString() + "</h5></li>");
-                        out.print("</ol>");
+                        if (numCredencial.equals(clientes.consultarClientes().get(i).getNumCredencial())) {
+                            validacion = true;
+                            out.print("<ol>");
+                            out.print("<li><h5>" + clientes.consultarClientes().get(i).toString() + "</h5></li>");
+                            out.print("</ol>");
+                            }
                     }
+                    if (validacion = false) {
+                            out.print("<h1>Lo sentimos, el usuario no fue encontrado</h1>");
+                        }
                 %>
             </section>
         </section>
