@@ -1,4 +1,7 @@
 1. Bitacora Lunes 3 de Noviembre 19:04 PM 
 	Cambios en github, agregado al server Ubuntu 
 
+2. Bitacora Lunes 3 de Noviembre 19:07 PM
+	Server up and running;
+
 
