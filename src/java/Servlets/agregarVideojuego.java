@@ -5,6 +5,7 @@
  */
 package Servlets;
 
+import interfaces.IPersistencia;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import objetosNegocio.Videojuego;
+import persistencia.PersistenciaBD;
 
 /**
  *
@@ -33,16 +35,18 @@ public class agregarVideojuego extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        IPersistencia fachada = new PersistenciaBD();
+        Videojuego videojuego = new Videojuego();
         
-        String numCatalogo = request.getParameter("numCatalogo");
-        String titulo = request.getParameter("titulo");
-        String genero = request.getParameter("genero");
-        String clasificacion = request.getParameter("clasificacion");
-        String consola = request.getParameter("consola");
-        String fabricante = request.getParameter("fabricante");
-        int version = Integer.parseInt(request.getParameter("version"));
+        videojuego.setNumCatalogo((String)request.getParameter("numCatalogo"));
+        videojuego.setTitulo((String)request.getParameter("titulo"));
+        videojuego.setGenero((String)request.getParameter("genero"));
+        videojuego.setClasificacion((String)request.getParameter("clasificacion"));
+        videojuego.setConsola((String)request.getParameter("consola"));
+        videojuego.setFabricante((String)request.getParameter("fabricante"));
+        videojuego.setVersion(Integer.parseInt(request.getParameter("version")));
         
-        Videojuego videojuego = new Videojuego(numCatalogo, titulo, genero, clasificacion, consola, fabricante, version);
+        fachada.agregar(videojuego);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

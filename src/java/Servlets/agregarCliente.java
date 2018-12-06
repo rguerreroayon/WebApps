@@ -5,6 +5,7 @@
  */
 package Servlets;
 
+import interfaces.IPersistencia;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import objetosNegocio.Cliente;
+import persistencia.PersistenciaBD;
 
 /**
  *
@@ -33,13 +35,15 @@ public class agregarCliente extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        IPersistencia fachada = new PersistenciaBD();
+        Cliente cliente = new Cliente();
         
-        String numCredencial = request.getParameter("numCredencial");
-        String nombre = request.getParameter("nombre");
-        String direccion = request.getParameter("direccion");
-        String telefono = request.getParameter("telefono");
+        cliente.setNumCredencial((String)request.getParameter("numCredencial"));
+        cliente.setNombre((String)request.getParameter("nombre"));
+        cliente.setDireccion((String)request.getParameter("direccion"));
+        cliente.setTelefono((String)request.getParameter("telefono"));
         
-        Cliente cliente = new Cliente(numCredencial, nombre, direccion, telefono);
+        fachada.agregar(cliente);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
