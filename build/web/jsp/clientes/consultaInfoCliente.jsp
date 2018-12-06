@@ -56,7 +56,7 @@
         
         <section class="main">
             <section class="articles">
-                <form action="">
+                <form action="consultasCliente">
                     <h5>Consultar información de cliente por ID:</h5>
                     <br>
                     

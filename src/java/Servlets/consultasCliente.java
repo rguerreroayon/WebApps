@@ -7,7 +7,6 @@ package Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import static java.lang.System.out;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,10 +17,10 @@ import persistencia.PersistenciaBD;
 
 /**
  *
- * @author Alberto
+ * @author rob
  */
-@WebServlet(name = "agregarCliente", urlPatterns = {"/agregarCliente"})
-public class agregarCliente extends HttpServlet {
+@WebServlet(name = "consultasClientes", urlPatterns = {"/consultasClientes"})
+public class consultasCliente extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,26 +34,26 @@ public class agregarCliente extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-        try{
-            PersistenciaBD bd = new PersistenciaBD();
+        try (PrintWriter out = response.getWriter()) {
+           
+            try{
+                PersistenciaBD bd = new PersistenciaBD();
+                Cliente cliente = bd.obten(new Cliente(request.getParameter("numCatalogo")));
+                
+                if(cliente != null){
+                    out.println("<h1>"+cliente.toString()+"</h1>");
+                }else{
+                    out.println("<h1> No se encontró el cliente</h1>");
+
+                }
+                
+                
+            }catch(Exception e){
+                out.println("<h1>"+e.getMessage()+"</h1>");
+            }
             
-            String numCredencial = request.getParameter("numCredencial");
-            String nombre = request.getParameter("nombre");
-            String direccion = request.getParameter("direccion");
-            String telefono = request.getParameter("telefono");
-        
-            Cliente cliente = new Cliente(numCredencial, nombre, direccion, telefono);
-            bd.agregar(cliente);
             
-            out.println("<h1>Cliente agregado correctamente</h1>");
-            
-            
-        }catch(Exception e){
-            out.println(e.getMessage());
         }
-        
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

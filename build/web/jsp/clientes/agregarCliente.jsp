@@ -57,7 +57,7 @@
 
         <section class="main">
             <section class="articles">
-                <form action="">
+                <form action="agregarCliente">
                     <h5>Agregar Clientes</h5>
                     <br>
                     

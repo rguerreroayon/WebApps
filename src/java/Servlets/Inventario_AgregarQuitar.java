@@ -13,6 +13,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import objetosNegocio.Videojuego;
+import persistencia.PersistenciaBD;
 
 /**
  *
@@ -37,7 +39,25 @@ public class Inventario_AgregarQuitar extends HttpServlet {
             
             
             
-            
+            try{
+                String numCatalogo = request.getParameter("numCatalogo");
+                String numCopias = request.getParameter("numeroCopias");
+                
+                PersistenciaBD bd = new PersistenciaBD();
+                Videojuego vd = bd.obten(new Videojuego(numCatalogo));
+                
+                bd.inventariar(vd,Integer.parseInt(numCopias));
+                
+                out.println("<h1>Videojuego inventariado correctamente</h1>");
+                
+                
+                
+                
+            }catch(Exception e){
+                
+                e.getMessage();
+                
+            }
             
             
             
