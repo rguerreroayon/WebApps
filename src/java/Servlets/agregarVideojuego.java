@@ -8,11 +8,13 @@ package Servlets;
 import interfaces.IPersistencia;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import objetosNegocio.Videojuego;
 import persistencia.PersistenciaBD;
 
@@ -35,6 +37,7 @@ public class agregarVideojuego extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        RequestDispatcher rd = null;
         IPersistencia fachada = new PersistenciaBD();
         Videojuego videojuego = new Videojuego();
         
@@ -47,6 +50,11 @@ public class agregarVideojuego extends HttpServlet {
         videojuego.setVersion(Integer.parseInt(request.getParameter("version")));
         
         fachada.agregar(videojuego);
+        
+        HttpSession session = request.getSession();
+        
+        session.setAttribute("tareaSel", "index");
+        rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
