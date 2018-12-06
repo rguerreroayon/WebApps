@@ -1,18 +1,19 @@
 <%-- 
-    Document   : consultasClientes
-    Created on : 2/12/2018, 04:39:49 PM
+    Document   : videojuego
+    Created on : 2/12/2018, 04:37:22 PM
     Author     : rob
 --%>
 
+<%@page import="objetosNegocio.Videojuego"%>
 <%@page import="persistencia.PersistenciaBD"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
         <link rel="stylesheet" type="text/css" href="../../css/style.css">
 
+        <title>Videocentro - Inventario</title>
     </head>
     <body>
         <header>
@@ -57,24 +58,53 @@
             </nav>
         </header>
         
-        <section class="main">
+        
+        
+        <h1>Inventariar un videojuego</h1>
+        
+       <section class="main">
             <section class="articles">
-                <%
+                <form action="Inventario_AgregarQuitar">
+                    <h5>Inventariar un videojuego existente</h5>
+                    <br>
                     
-                    try{
-                        PersistenciaBD clientes = new PersistenciaBD();
-                        for (int i = 0; i < clientes.consultarRentasVideojuegos().size(); i++) {
-                        out.print("<ol>");
-                        out.print("<li><h5>" + clientes.consultarClientes().get(i).toString() + "</h5></li>");
-                        out.print("</ol>");
-                    }
-                    }catch(Exception e){
-                        out.println(e.getMessage());
-                    }
+                    <select name="videojuego">
+                        <%
+                        try{
+                            PersistenciaBD bd = new PersistenciaBD();
+                            bd.consultarVideojuegos();
+                        
+                            for (Videojuego v : bd.consultarVideojuegos()) {
+                                out.println("<option name='numCatalogo' value='"+v.getNumCatalogo()+"'>"+v.getTitulo()+"</option>");
+                            }
+                            
+                            
+                            
+                            
+                        }catch(Exception e){
+                            out.println("U DID SOMETHING NASTY!");
+                        } 
+                            
+             
+
+                        %>                        
+                    </select>
                     
                     
-                %>
+                    <p>Número de copias a inventariar</p>
+                    <input type="text" name="numeroCopias" 
+                    
+                    <input type="submit" value="Enviar" />
+                    <input type="reset" value="Restablecer" />
+                </form>
             </section>
         </section>
+        
+        
+        <% 
+        
+        %>
+        
+        
     </body>
 </html>

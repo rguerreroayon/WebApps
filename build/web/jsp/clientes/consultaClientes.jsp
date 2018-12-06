@@ -60,12 +60,19 @@
         <section class="main">
             <section class="articles">
                 <%
-                    PersistenciaBD clientes = new PersistenciaBD();
-                    for (int i = 0; i < clientes.consultarRentasVideojuegos().size(); i++) {
+                    
+                    try{
+                        PersistenciaBD clientes = new PersistenciaBD();
+                        for (int i = 0; i < clientes.consultarRentasVideojuegos().size(); i++) {
                         out.print("<ol>");
                         out.print("<li><h5>" + clientes.consultarClientes().get(i).toString() + "</h5></li>");
                         out.print("</ol>");
                     }
+                    }catch(Exception e){
+                        out.println(e.getMessage());
+                    }
+                    
+                    
                 %>
             </section>
         </section>
