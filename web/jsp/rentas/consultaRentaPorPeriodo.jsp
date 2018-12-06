@@ -1,10 +1,9 @@
-<%-- 
-    Document   : consultaRentados
-    Created on : 2/12/2018, 04:40:49 PM
+    <%-- 
+    Document   : consultaRentaPorPeriodo
+    Created on : 3/12/2018, 12:47:53 PM
     Author     : rob
 --%>
 
-<%@page import="persistencia.PersistenciaBD"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,7 +13,8 @@
         <link rel="stylesheet" type="text/css" href="../../css/style.css">
 
     </head>
-    <header>
+    <body>
+        <header>
             <nav class="navegacion">
                 <ul class="menu">
                     
@@ -55,18 +55,5 @@
                 </ul>
             </nav>
         </header>
-        
-        <section class="main">
-            <section class="articles">
-                <%
-                    PersistenciaBD clientes = new PersistenciaBD();
-                    for (int i = 0; i < clientes.consultarRentasVideojuegos().size(); i++) {
-                        out.print("<ol>");
-                        out.print("<li><h5>" + clientes.consultarRentasVideojuegos().get(i).toString() + "</h5></li>");
-                        out.print("</ol>");
-                    }
-                %>
-            </section>
-        </section>
     </body>
 </html>
