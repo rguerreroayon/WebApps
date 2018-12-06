@@ -3,6 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/C:/Users/Alberto/Desktop/WebApps/web/index.html</file>
+            <file>file:/C:/Users/Alberto/Desktop/WebApps/web/css/style.css</file>
+            <file>file:/C:/Users/Alberto/Desktop/WebApps/web/jsp/clientes/consultaClientes.jsp</file>
+            <file>file:/C:/Users/Alberto/Desktop/WebApps/web/videocentro.html</file>
+            <file>file:/C:/Users/Alberto/Desktop/WebApps/src/java/Servlets/agregarVideojuego.java</file>
+            <file>file:/C:/Users/Alberto/Desktop/WebApps/web/jsp/clientes/consultaInfoCliente.jsp</file>
+            <file>file:/C:/Users/Alberto/Desktop/WebApps/web/imagenes/background.png</file>
+            <file>file:/C:/Users/Alberto/Desktop/WebApps/src/java/Servlets/agregarCliente.java</file>
+            <file>file:/C:/Users/Alberto/Desktop/WebApps/web/jsp/videojuegos/consultaVideojuegosRentados.jsp</file>
+            <file>file:/C:/Users/Alberto/Desktop/WebApps/web/jsp/videojuegos/agregarVideojuego.jsp</file>
+            <file>file:/C:/Users/Alberto/Desktop/WebApps/web/jsp/clientes/agregarCliente.jsp</file>
+=======
             <file>file:/C:/Users/rob/Desktop/Proyecto%20Final%20-%20AW/src/java/Login.java</file>
             <file>file:/C:/Users/rob/Desktop/Proyecto%20Final%20-%20AW/web/jsp/rentas/rentaDevolucion.jsp</file>
             <file>file:/C:/Users/rob/Desktop/Proyecto%20Final%20-%20AW/web/css/style.css</file>
@@ -19,6 +32,7 @@
             <file>file:/C:/Users/rob/Desktop/Proyecto%20Final%20-%20AW/web/index.html</file>
             <file>file:/C:/Users/rob/Desktop/Proyecto%20Final%20-%20AW/web/jsp/videojuegos/agregarVideojuego.jsp</file>
             <file>file:/C:/Users/rob/Desktop/Proyecto%20Final%20-%20AW/web/contacto.html</file>
+>>>>>>> 6ebb41c88cad09452785c34ac750e71ecf2199af
         </group>
     </open-files>
 </project-private>

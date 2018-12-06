@@ -5,6 +5,7 @@
  */
 package Servlets;
 
+import interfaces.IPersistencia;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.System.out;
@@ -35,7 +36,10 @@ public class agregarCliente extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        IPersistencia fachada = new PersistenciaBD();
+        Cliente cliente = new Cliente();
         
+<<<<<<< HEAD
         try{
             PersistenciaBD bd = new PersistenciaBD();
             
@@ -55,6 +59,14 @@ public class agregarCliente extends HttpServlet {
         }
         
         
+=======
+        cliente.setNumCredencial((String)request.getParameter("numCredencial"));
+        cliente.setNombre((String)request.getParameter("nombre"));
+        cliente.setDireccion((String)request.getParameter("direccion"));
+        cliente.setTelefono((String)request.getParameter("telefono"));
+        
+        fachada.agregar(cliente);
+>>>>>>> master
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
