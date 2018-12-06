@@ -37,19 +37,16 @@ public class agregarCliente extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         IPersistencia fachada = new PersistenciaBD();
-        Cliente cliente = new Cliente();
         
-<<<<<<< HEAD
         try{
-            PersistenciaBD bd = new PersistenciaBD();
             
             String numCredencial = request.getParameter("numCredencial");
             String nombre = request.getParameter("nombre");
             String direccion = request.getParameter("direccion");
             String telefono = request.getParameter("telefono");
         
-            Cliente cliente = new Cliente(numCredencial, nombre, direccion, telefono);
-            bd.agregar(cliente);
+            
+            fachada.agregar(new Cliente(numCredencial, nombre, direccion, telefono));
             
             out.println("<h1>Cliente agregado correctamente</h1>");
             
@@ -57,16 +54,7 @@ public class agregarCliente extends HttpServlet {
         }catch(Exception e){
             out.println(e.getMessage());
         }
-        
-        
-=======
-        cliente.setNumCredencial((String)request.getParameter("numCredencial"));
-        cliente.setNombre((String)request.getParameter("nombre"));
-        cliente.setDireccion((String)request.getParameter("direccion"));
-        cliente.setTelefono((String)request.getParameter("telefono"));
-        
-        fachada.agregar(cliente);
->>>>>>> master
+       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

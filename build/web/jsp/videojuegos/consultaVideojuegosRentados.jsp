@@ -59,15 +59,6 @@
     <section class="main">
         <section class="articles">
 
-            try{
-
-
-
-            }catch(Exception e){
-
-
-            }
-
             <%
                 try {
                     PersistenciaBD clientes = new PersistenciaBD();
@@ -78,7 +69,7 @@
                     }
 
                 } catch (Exception e) {
-
+                    e.getMessage();
                 }
 
             %>
