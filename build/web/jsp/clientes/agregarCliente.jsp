@@ -59,7 +59,7 @@
             <section class="articles">
                 
                
-                <form action="../../../src/java/Servlets/agregarCliente.java">
+                <form action="../agregarCliente">
                     <h5>Agregar Clientes</h5>
                     <br>
                     
