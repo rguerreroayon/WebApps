@@ -1,7 +1,7 @@
 <%-- 
-    Document   : rentaDevolucion
-    Created on : 2/12/2018, 04:40:01 PM
-    Author     : rob
+    Document   : deplegarRentasCliente
+    Created on : 6/12/2018, 11:07:33 PM
+    Author     : Alberto
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -10,8 +10,6 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <link rel="stylesheet" type="text/css" href="../../css/style.css">
-
     </head>
     <body>
         <header>
@@ -56,25 +54,23 @@
             </nav>
         </header>
         
-        <section class="main">
-            <section class="articles">
-                <form action="devolverRenta">
-                    <h5>Devolver Renta Videojuego</h5>
-                    <br>
-                    
-                    <p>Número de credencial:</p>
-                    <input type="text" name="numCredencial" pattern="[0-9]" maxlength="10">
+        <table> 
+            <tr>
+                <%-- Títulos de las columnas --%>
+                <th>Nombre del Cliente</th>
+                <th>Título del Juego</th>
+                <th>Fecha de Renta</th>
+                <th>Tiempo de Renta</th>
+            </tr>
 
-                    <p>Número de catalogo:</p>
-                    <input type="text" name="numCatalogo" pattern="[0-9]" maxlength="10">
-                    
-                    <p>Número de catalogo:</p>
-                    <input type="number" name="tiempoRenta" min="1" maxlength="10">
-
-                    <input type="submit" value="Enviar" />
-                    <input type="reset" value="Restablecer" />
-                </form>
-            </section>
-        </section>
+            <c:forEach items="${listaRentas}" var="rentas">
+                <tr>
+                  <td>${rentas.getCliente().getNombre()}</td>
+                  <td>${rentas.nombre}</td>
+                  <td>${rentas.frecuencia}</td>
+                  <td>${rentas.frecuencia}</td>
+              </tr>
+            </c:forEach>
+        </table>
     </body>
 </html>

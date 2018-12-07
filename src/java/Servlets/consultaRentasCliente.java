@@ -7,21 +7,24 @@ package Servlets;
 
 import interfaces.IPersistencia;
 import java.io.IOException;
-import static java.lang.System.out;
+import java.io.PrintWriter;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import objetosNegocio.Cliente;
+import objetosNegocio.Renta;
 import persistencia.PersistenciaBD;
 
 /**
  *
- * @author Alberto
+ * @author rob
  */
-@WebServlet(name = "agregarCliente", urlPatterns = {"/agregarCliente"})
-public class agregarCliente extends HttpServlet {
+@WebServlet(name = "rentas", urlPatterns = {"/rentas"})
+public class consultaRentasCliente extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,25 +38,25 @@ public class agregarCliente extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        IPersistencia fachada = new PersistenciaBD();
-        
-        try{
-            
-            String numCredencial = request.getParameter("numCredencial");
-            String nombre = request.getParameter("nombre");
-            String direccion = request.getParameter("direccion");
-            String telefono = request.getParameter("telefono");
-        
-            
-            fachada.agregar(new Cliente(numCredencial, nombre, direccion, telefono));
-            
-            out.println("<h1>Cliente agregado correctamente</h1>");
-            
-            
-        }catch(Exception e){
-            out.println("<h1>"+e.getMessage()+"</h1>");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            try {
+                RequestDispatcher rd;
+                IPersistencia bd = new PersistenciaBD();
+                List listaRentas;
+                
+                Cliente cliente = bd.obten(new Cliente(request.getParameter("numCatalogo")));
+                listaRentas = bd.consultarRentasVideojuegos(cliente);
+
+                request.setAttribute("listaRentas", listaRentas);
+                rd = request.getRequestDispatcher("desplegarRentasCliente.jsp");
+
+                rd.forward(request, response);
+
+            } catch (Exception e) {
+                out.println("<h1>" + e.getMessage() + "</h1>");
+            }
         }
-       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -1,7 +1,7 @@
 <%-- 
-    Document   : rentaDevolucion
-    Created on : 2/12/2018, 04:40:01 PM
-    Author     : rob
+    Document   : desplegarCliente
+    Created on : 6/12/2018, 10:32:18 PM
+    Author     : Alberto
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -10,8 +10,6 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <link rel="stylesheet" type="text/css" href="../../css/style.css">
-
     </head>
     <body>
         <header>
@@ -56,25 +54,20 @@
             </nav>
         </header>
         
-        <section class="main">
-            <section class="articles">
-                <form action="devolverRenta">
-                    <h5>Devolver Renta Videojuego</h5>
-                    <br>
-                    
-                    <p>Número de credencial:</p>
-                    <input type="text" name="numCredencial" pattern="[0-9]" maxlength="10">
-
-                    <p>Número de catalogo:</p>
-                    <input type="text" name="numCatalogo" pattern="[0-9]" maxlength="10">
-                    
-                    <p>Número de catalogo:</p>
-                    <input type="number" name="tiempoRenta" min="1" maxlength="10">
-
-                    <input type="submit" value="Enviar" />
-                    <input type="reset" value="Restablecer" />
-                </form>
-            </section>
-        </section>
+        <table>
+            <tr>
+                <%-- Títulos de las columnas --%>
+                <th>Número de Credencial</th>
+                <th>Nombre</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
+            </tr>
+                <tr>
+                  <td>${cliente.numCredencial}</td>
+                  <td>${cliente.nombre}</td>
+                  <td>${cliente.direccion}</td>
+                  <td>${cliente.telefono}</td> 
+              </tr>
+        </table>
     </body>
 </html>

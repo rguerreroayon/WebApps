@@ -1,6 +1,6 @@
 <%-- 
-    Document   : rentaDevolucion
-    Created on : 2/12/2018, 04:40:01 PM
+    Document   : consultaInfoCliente1
+    Created on : 3/12/2018, 09:57:54 PM
     Author     : rob
 --%>
 
@@ -10,8 +10,6 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <link rel="stylesheet" type="text/css" href="../../css/style.css">
-
     </head>
     <body>
         <header>
@@ -58,20 +56,14 @@
         
         <section class="main">
             <section class="articles">
-                <form action="devolverRenta">
-                    <h5>Devolver Renta Videojuego</h5>
+                <form action="consultasCliente">
+                    <h5>Consultar información de cliente por ID:</h5>
                     <br>
                     
-                    <p>Número de credencial:</p>
-                    <input type="text" name="numCredencial" pattern="[0-9]" maxlength="10">
+                    <p>ID Cliente:</p>
+                    <input type="text" name="numCredencial" pattern="[0-9]{10}">
 
-                    <p>Número de catalogo:</p>
-                    <input type="text" name="numCatalogo" pattern="[0-9]" maxlength="10">
-                    
-                    <p>Número de catalogo:</p>
-                    <input type="number" name="tiempoRenta" min="1" maxlength="10">
-
-                    <input type="submit" value="Enviar" />
+                    <input type="submit" value="Consultar" />
                     <input type="reset" value="Restablecer" />
                 </form>
             </section>

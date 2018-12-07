@@ -55,5 +55,26 @@
                 </ul>
             </nav>
         </header>
+        
+        <section class="main">
+            <section class="articles">
+                <form action="devolverRenta">
+                    <h5>Devolver Renta Videojuego</h5>
+                    <br>
+                    
+                    <p>Número de credencial:</p>
+                    <input type="text" name="numCredencial" pattern="[0-9]" maxlength="10">
+
+                    <p>Número de catalogo:</p>
+                    <input type="text" name="numCatalogo" pattern="[0-9]" maxlength="10">
+                    
+                    <p>Número de catalogo:</p>
+                    <input type="number" name="tiempoRenta" min="1" maxlength="10">
+
+                    <input type="submit" value="Enviar" />
+                    <input type="reset" value="Restablecer" />
+                </form>
+            </section>
+        </section>
     </body>
 </html>

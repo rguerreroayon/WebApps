@@ -1,6 +1,6 @@
 <%-- 
-    Document   : rentaDevolucion
-    Created on : 2/12/2018, 04:40:01 PM
+    Document   : consultaRentaPelicula
+    Created on : 3/12/2018, 12:44:28 PM
     Author     : rob
 --%>
 
@@ -14,7 +14,7 @@
 
     </head>
     <body>
-        <header>
+       <header>
             <nav class="navegacion">
                 <ul class="menu">
                     
@@ -56,10 +56,10 @@
             </nav>
         </header>
         
-        <section class="main">
+         <section class="main">
             <section class="articles">
-                <form action="devolverRenta">
-                    <h5>Devolver Renta Videojuego</h5>
+                <form action="rentarVideojuego">
+                    <h5>Rentar Videojuego</h5>
                     <br>
                     
                     <p>Número de credencial:</p>

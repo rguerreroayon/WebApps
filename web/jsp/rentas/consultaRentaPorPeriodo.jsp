@@ -55,5 +55,23 @@
                 </ul>
             </nav>
         </header>
+        
+        <section class="main">
+            <section class="articles">
+                <form action="consultaRentasPeriodo">
+                    <h5>Consultar Renta Periodo</h5>
+                    <br>
+                    
+                    <p>Fecha de inicio:</p>
+                    <input type="date" name="fechaInicio">
+                    
+                    <p>Fecha de fin:</p>
+                    <input type="date" name="fechaFinal">
+                    
+                    <input type="submit" value="Enviar" />
+                    <input type="reset" value="Restablecer" />
+                </form>
+            </section>
+        </section>
     </body>
 </html>

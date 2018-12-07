@@ -7,21 +7,26 @@ package Servlets;
 
 import interfaces.IPersistencia;
 import java.io.IOException;
-import static java.lang.System.out;
+import java.io.PrintWriter;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import objetosNegocio.Cliente;
+import objetosNegocio.Renta;
+import objetosServicio.Fecha;
+import objetosServicio.Periodo;
 import persistencia.PersistenciaBD;
 
 /**
  *
  * @author Alberto
  */
-@WebServlet(name = "agregarCliente", urlPatterns = {"/agregarCliente"})
-public class agregarCliente extends HttpServlet {
+@WebServlet(name = "consultaRentasPeriodo", urlPatterns = {"/consultaRentasPeriodo"})
+public class consultaRentasPeriodo extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,25 +40,34 @@ public class agregarCliente extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        IPersistencia fachada = new PersistenciaBD();
-        
-        try{
-            
-            String numCredencial = request.getParameter("numCredencial");
-            String nombre = request.getParameter("nombre");
-            String direccion = request.getParameter("direccion");
-            String telefono = request.getParameter("telefono");
-        
-            
-            fachada.agregar(new Cliente(numCredencial, nombre, direccion, telefono));
-            
-            out.println("<h1>Cliente agregado correctamente</h1>");
-            
-            
-        }catch(Exception e){
-            out.println("<h1>"+e.getMessage()+"</h1>");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            try {
+                RequestDispatcher rd;
+                IPersistencia bd = new PersistenciaBD();
+                List listaRentas;
+                Fecha fechaInicio = null, fechaFinal = null;
+                
+                String fecha1 = request.getParameter("fechaInicio");
+                String[] split1 = fecha1.split("/");
+                fechaInicio.set(Integer.parseInt(split1[2]), Integer.parseInt(split1[1]), Integer.parseInt(split1[0]));
+                
+                String fecha2 = request.getParameter("fechaFinal");
+                String[] split2 = fecha2.split("/");
+                fechaInicio.set(Integer.parseInt(split2[2]), Integer.parseInt(split2[1]), Integer.parseInt(split2[0]));
+                
+                Periodo periodo = new Periodo(fechaInicio, fechaFinal);
+                listaRentas = bd.consultarRentasVideojuegos(periodo);
+
+                request.setAttribute("listaRentas", listaRentas);
+                rd = request.getRequestDispatcher("desplegarRentasPeriodo.jsp");
+
+                rd.forward(request, response);
+
+            } catch (Exception e) {
+                out.println("<h1>" + e.getMessage() + "</h1>");
+            }
         }
-       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

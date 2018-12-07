@@ -57,21 +57,21 @@
 
         <section class="main">
             <section class="articles">
-                <form action="">
+                <form action="agregarCliente">
                     <h5>Agregar Clientes</h5>
                     <br>
                     
                     <p>Número de credencial:</p>
-                    <input type="text" name="numCredencial" pattern="[0-9]{10}">
+                    <input type="text" name="numCredencial" pattern="[0-9]" maxlength="10">
 
                     <p>Nombre del cliente:</p>
-                    <input type="text" name="nombre" pattern="[a-Z]+{35}">
+                    <input type="text" name="nombre" pattern="[a-Z]+" maxlength="35">
                     
                     <p>Dirección:</p>
-                    <input type="text" name="direccion" pattern="[a-Z]+{35}">
+                    <input type="text" name="direccion" pattern="[a-Z]+" maxlength="35">
                     
                     <p>Teléfono:</p>
-                    <input type="text" name="telefono" pattern="[0-9]{15}">
+                    <input type="text" name="telefono" pattern="[0-9]" maxlength="15">
                     <br>
 
                     <input type="submit" value="Enviar" />

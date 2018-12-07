@@ -1,6 +1,6 @@
 <%-- 
-    Document   : rentaDevolucion
-    Created on : 2/12/2018, 04:40:01 PM
+    Document   : videojuego
+    Created on : 2/12/2018, 04:37:22 PM
     Author     : rob
 --%>
 
@@ -9,9 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
         <link rel="stylesheet" type="text/css" href="../../css/style.css">
 
+        <title>Videocentro - Inventario</title>
     </head>
     <body>
         <header>
@@ -56,25 +56,14 @@
             </nav>
         </header>
         
-        <section class="main">
-            <section class="articles">
-                <form action="devolverRenta">
-                    <h5>Devolver Renta Videojuego</h5>
-                    <br>
-                    
-                    <p>Número de credencial:</p>
-                    <input type="text" name="numCredencial" pattern="[0-9]" maxlength="10">
-
-                    <p>Número de catalogo:</p>
-                    <input type="text" name="numCatalogo" pattern="[0-9]" maxlength="10">
-                    
-                    <p>Número de catalogo:</p>
-                    <input type="number" name="tiempoRenta" min="1" maxlength="10">
-
-                    <input type="submit" value="Enviar" />
-                    <input type="reset" value="Restablecer" />
-                </form>
-            </section>
-        </section>
+        
+        
+        <h1>Hello World!</h1>
+        
+        <% 
+        
+        %>
+        
+        
     </body>
 </html>

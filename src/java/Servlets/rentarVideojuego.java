@@ -7,21 +7,26 @@ package Servlets;
 
 import interfaces.IPersistencia;
 import java.io.IOException;
-import static java.lang.System.out;
+import java.io.PrintWriter;
+import java.util.Date;
+import javafx.scene.input.DataFormat;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import objetosNegocio.Cliente;
+import objetosNegocio.Renta;
+import objetosNegocio.Videojuego;
+import objetosServicio.Fecha;
 import persistencia.PersistenciaBD;
 
 /**
  *
  * @author Alberto
  */
-@WebServlet(name = "agregarCliente", urlPatterns = {"/agregarCliente"})
-public class agregarCliente extends HttpServlet {
+@WebServlet(name = "rentarVideojuego", urlPatterns = {"/rentarVideojuego"})
+public class rentarVideojuego extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,25 +40,34 @@ public class agregarCliente extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        IPersistencia fachada = new PersistenciaBD();
-        
-        try{
-            
-            String numCredencial = request.getParameter("numCredencial");
-            String nombre = request.getParameter("nombre");
-            String direccion = request.getParameter("direccion");
-            String telefono = request.getParameter("telefono");
-        
-            
-            fachada.agregar(new Cliente(numCredencial, nombre, direccion, telefono));
-            
-            out.println("<h1>Cliente agregado correctamente</h1>");
-            
-            
-        }catch(Exception e){
-            out.println("<h1>"+e.getMessage()+"</h1>");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            IPersistencia ip = new PersistenciaBD();
+            Videojuego videojuego = null;
+            Cliente cliente;
+            Renta renta = null;
+            Fecha fecha = null;
+
+            try {
+                String numCatalogo = request.getParameter("numCatalogo");
+                String numCredencial = request.getParameter("numCredencial");
+                int tiempoRenta = Integer.parseInt(request.getParameter("tiempoRenta"));
+                
+                for (Videojuego va : ip.consultarVideojuegos()) {
+                    if (va.getNumCatalogo().equalsIgnoreCase(numCatalogo)) {
+                        videojuego = va;
+                    }
+                }
+                cliente = ip.obten(new Cliente(numCredencial));
+                renta = new Renta(cliente, videojuego, fecha = new Fecha(), tiempoRenta);
+                
+
+            } catch (Exception e) {
+                out.println("<h1>"+e.getMessage()+"</h1>");
+            }
+
+            ip.rentarVideojuego(renta);
         }
-       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
