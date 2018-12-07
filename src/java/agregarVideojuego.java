@@ -3,26 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Servlets;
+
 
 import interfaces.IPersistencia;
 import java.io.IOException;
 import java.io.PrintWriter;
-import static java.lang.System.out;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import objetosNegocio.Cliente;
+import objetosNegocio.Videojuego;
 import persistencia.PersistenciaBD;
 
 /**
  *
  * @author Alberto
  */
-@WebServlet(name = "agregarCliente", urlPatterns = {"/agregarCliente"})
-public class agregarCliente extends HttpServlet {
+@WebServlet(name = "agregarVideojuego", urlPatterns = {"/agregarVideojuego"})
+public class agregarVideojuego extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,25 +35,18 @@ public class agregarCliente extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        //IPersistencia fachada = new PersistenciaBD();
+        IPersistencia fachada = new PersistenciaBD();
+        Videojuego videojuego = new Videojuego();
         
-        try{
-            
-            String numCredencial = request.getParameter("numCredencial");
-            String nombre = request.getParameter("nombre");
-            String direccion = request.getParameter("direccion");
-            String telefono = request.getParameter("telefono");
+        videojuego.setNumCatalogo((String)request.getParameter("numCatalogo"));
+        videojuego.setTitulo((String)request.getParameter("titulo"));
+        videojuego.setGenero((String)request.getParameter("genero"));
+        videojuego.setClasificacion((String)request.getParameter("clasificacion"));
+        videojuego.setConsola((String)request.getParameter("consola"));
+        videojuego.setFabricante((String)request.getParameter("fabricante"));
+        videojuego.setVersion(Integer.parseInt(request.getParameter("version")));
         
-            
-           // fachada.agregar(new Cliente(numCredencial, nombre, direccion, telefono));
-            
-            out.println("<h1>Cliente agregado correctamente</h1>");
-            
-            
-        }catch(Exception e){
-            out.println(e.getMessage());
-        }
-       
+        fachada.agregar(videojuego);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

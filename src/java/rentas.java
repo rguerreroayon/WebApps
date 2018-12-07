@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Servlets;
 
-import interfaces.IPersistencia;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,15 +12,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import objetosNegocio.Videojuego;
-import persistencia.PersistenciaBD;
 
 /**
  *
- * @author Alberto
+ * @author rob
  */
-@WebServlet(name = "agregarVideojuego", urlPatterns = {"/agregarVideojuego"})
-public class agregarVideojuego extends HttpServlet {
+@WebServlet(name = "rentas", urlPatterns = {"/rentas"})
+public class rentas extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,18 +32,10 @@ public class agregarVideojuego extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        IPersistencia fachada = new PersistenciaBD();
-        Videojuego videojuego = new Videojuego();
-        
-        videojuego.setNumCatalogo((String)request.getParameter("numCatalogo"));
-        videojuego.setTitulo((String)request.getParameter("titulo"));
-        videojuego.setGenero((String)request.getParameter("genero"));
-        videojuego.setClasificacion((String)request.getParameter("clasificacion"));
-        videojuego.setConsola((String)request.getParameter("consola"));
-        videojuego.setFabricante((String)request.getParameter("fabricante"));
-        videojuego.setVersion(Integer.parseInt(request.getParameter("version")));
-        
-        fachada.agregar(videojuego);
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+         
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
