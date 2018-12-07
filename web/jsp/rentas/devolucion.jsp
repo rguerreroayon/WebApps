@@ -1,10 +1,9 @@
 <%-- 
-    Document   : consultasClientes
-    Created on : 2/12/2018, 04:39:49 PM
+    Document   : devolucion
+    Created on : 6/12/2018, 09:43:00 PM
     Author     : rob
 --%>
 
-<%@page import="persistencia.PersistenciaBD"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -57,25 +56,5 @@
             </nav>
         </header>
 
-        
-        <section class="main">
-            <section class="articles">
-                <%
-                    
-                    try{
-                        PersistenciaBD clientes = new PersistenciaBD();
-                        for (int i = 0; i < clientes.consultarRentasVideojuegos().size(); i++) {
-                        out.print("<ol>");
-                        out.print("<li><h5>" + clientes.consultarClientes().get(i).toString() + "</h5></li>");
-                        out.print("</ol>");
-                    }
-                    }catch(Exception e){
-                        out.println(e.getMessage());
-                    }
-                    
-                    
-                %>
-            </section>
-        </section>
     </body>
 </html>
