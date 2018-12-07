@@ -1,10 +1,9 @@
 <%-- 
-    Document   : consultasClientes
-    Created on : 2/12/2018, 04:39:49 PM
+    Document   : rentaDevolucion
+    Created on : 2/12/2018, 04:40:01 PM
     Author     : rob
 --%>
 
-<%@page import="persistencia.PersistenciaBD"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,7 +14,7 @@
 
     </head>
     <body>
-         <header>
+        <header>
             <nav class="navegacion">
                 <ul class="menu">
                     
@@ -37,16 +36,16 @@
                     
                     <li><a href="#">Inventario</a>
                         <ul class="submenu">
-                            <li><a href="../../jsp/inventario/desinventariar.jsp" name="agregar">Agregar Videojuego al inventario</a></li>
-                            <li><a href="../../jsp/inventario/inventariar.jsp" name="quitar">Quitar Videojuego del inventario</a></li>
+                            <li><a href="../../jsp/inventario/videojuego.jsp" name="agregar">Agregar Videojuego al inventario</a></li>
+                            <li><a href="../../jsp/inventario/videojuego.jsp" name="quitar">Quitar Videojuego del inventario</a></li>
                         </ul>
                     </li>
                     
                     <li><a href="#">Rentas</a>
 
                         <ul class="submenu">
-                            <li><a href="../../jsp/rentas/renta.jsp">Renta de Videojuego</a></li>
-                            <li><a href="../../jsp/rentas/devolucion.jsp">Devolver un Videojuego</a></li>
+                            <li><a href="../../jsp/rentas/rentaDevolucion.jsp" name="renta">Renta de Videojuego</a></li>
+                            <li><a href="../../jsp/rentas/rentaDevolucion.jsp" name="devolucion">Devolver un Videojuego</a></li>
                             <li><a href="../../jsp/rentas/consultaRentaPelicula.jsp">Consultar renta de película</a></li>
                             <li><a href="../../jsp/rentas/consultaRentaPorPeriodo.jsp">Consultar rentas por periodo de fecha</a></li>
                         </ul>
@@ -56,26 +55,33 @@
                 </ul>
             </nav>
         </header>
-
         
+<<<<<<< HEAD:build/web/jsp/rentas/rentaDevolucion.jsp
         <section class="main">
             <section class="articles">
-                <%
+                <form action="devolverRenta">
+                    <h5>Devolver Renta Videojuego</h5>
+                    <br>
                     
-                    try{
-                        PersistenciaBD clientes = new PersistenciaBD();
-                        for (int i = 0; i < clientes.consultarRentasVideojuegos().size(); i++) {
-                        out.print("<ol>");
-                        out.print("<li><h5>" + clientes.consultarClientes().get(i).toString() + "</h5></li>");
-                        out.print("</ol>");
-                    }
-                    }catch(Exception e){
-                        out.println(e.getMessage());
-                    }
+                    <p>Número de credencial:</p>
+                    <input type="text" name="numCredencial" pattern="[0-9]" maxlength="10">
+
+                    <p>Número de catalogo:</p>
+                    <input type="text" name="numCatalogo" pattern="[0-9]" maxlength="10">
                     
-                    
-                %>
+                    <p>Número de catalogo:</p>
+                    <input type="number" name="tiempoRenta" min="1" maxlength="10">
+
+                    <input type="submit" value="Enviar" />
+                    <input type="reset" value="Restablecer" />
+                </form>
             </section>
         </section>
+=======
+        
+        
+        
+        
+>>>>>>> ce334e400ec3df7e9e12e3b90d3c1fbda4f3892e:build/web/jsp/rentas/renta.jsp
     </body>
 </html>

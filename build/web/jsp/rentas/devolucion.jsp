@@ -1,6 +1,6 @@
 <%-- 
-    Document   : rentaDevolucion
-    Created on : 2/12/2018, 04:40:01 PM
+    Document   : devolucion
+    Created on : 6/12/2018, 09:43:00 PM
     Author     : rob
 --%>
 
@@ -14,7 +14,7 @@
 
     </head>
     <body>
-        <header>
+         <header>
             <nav class="navegacion">
                 <ul class="menu">
                     
@@ -36,16 +36,16 @@
                     
                     <li><a href="#">Inventario</a>
                         <ul class="submenu">
-                            <li><a href="../../jsp/inventario/videojuego.jsp" name="agregar">Agregar Videojuego al inventario</a></li>
-                            <li><a href="../../jsp/inventario/videojuego.jsp" name="quitar">Quitar Videojuego del inventario</a></li>
+                            <li><a href="../../jsp/inventario/desinventariar.jsp" name="agregar">Agregar Videojuego al inventario</a></li>
+                            <li><a href="../../jsp/inventario/inventariar.jsp" name="quitar">Quitar Videojuego del inventario</a></li>
                         </ul>
                     </li>
                     
                     <li><a href="#">Rentas</a>
 
                         <ul class="submenu">
-                            <li><a href="../../jsp/rentas/rentaDevolucion.jsp" name="renta">Renta de Videojuego</a></li>
-                            <li><a href="../../jsp/rentas/rentaDevolucion.jsp" name="devolucion">Devolver un Videojuego</a></li>
+                            <li><a href="../../jsp/rentas/renta.jsp">Renta de Videojuego</a></li>
+                            <li><a href="../../jsp/rentas/devolucion.jsp">Devolver un Videojuego</a></li>
                             <li><a href="../../jsp/rentas/consultaRentaPelicula.jsp">Consultar renta de película</a></li>
                             <li><a href="../../jsp/rentas/consultaRentaPorPeriodo.jsp">Consultar rentas por periodo de fecha</a></li>
                         </ul>
@@ -55,26 +55,6 @@
                 </ul>
             </nav>
         </header>
-        
-        <section class="main">
-            <section class="articles">
-                <form action="devolverRenta">
-                    <h5>Devolver Renta Videojuego</h5>
-                    <br>
-                    
-                    <p>Número de credencial:</p>
-                    <input type="text" name="numCredencial" pattern="[0-9]" maxlength="10">
 
-                    <p>Número de catalogo:</p>
-                    <input type="text" name="numCatalogo" pattern="[0-9]" maxlength="10">
-                    
-                    <p>Número de catalogo:</p>
-                    <input type="number" name="tiempoRenta" min="1" maxlength="10">
-
-                    <input type="submit" value="Enviar" />
-                    <input type="reset" value="Restablecer" />
-                </form>
-            </section>
-        </section>
     </body>
 </html>

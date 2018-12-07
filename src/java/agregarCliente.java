@@ -1,27 +1,27 @@
-package Servlets;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
+
+import interfaces.IPersistencia;
 import java.io.IOException;
-import java.io.PrintWriter;
+import static java.lang.System.out;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import objetosNegocio.Videojuego;
+import objetosNegocio.Cliente;
 import persistencia.PersistenciaBD;
 
 /**
  *
- * @author rob
+ * @author Alberto
  */
-@WebServlet(urlPatterns = {"/Inventario_AgregarQuitar"})
-public class Inventario_AgregarQuitar extends HttpServlet {
+@WebServlet(name = "agregarCliente", urlPatterns = {"/agregarCliente"})
+public class agregarCliente extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,44 +35,26 @@ public class Inventario_AgregarQuitar extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        //IPersistencia fachada = new PersistenciaBD();
+        
+        try{
+            
+            String numCredencial = request.getParameter("numCredencial");
+            String nombre = request.getParameter("nombre");
+            String direccion = request.getParameter("direccion");
+            String telefono = request.getParameter("telefono");
+        
+            
+           // fachada.agregar(new Cliente(numCredencial, nombre, direccion, telefono));
+            
+            out.println("<h1>Cliente agregado correctamente</h1>");
             
             
-            
-            try{
-                String numCatalogo = request.getParameter("numCatalogo");
-                String numCopias = request.getParameter("numeroCopias");
-                
-                PersistenciaBD bd = new PersistenciaBD();
-                Videojuego vd = bd.obten(new Videojuego(numCatalogo));
-                
-                bd.inventariar(vd,Integer.parseInt(numCopias));
-                
-                out.println("<h1>Videojuego inventariado correctamente</h1>");
-                
-                
-                
-                
-            }catch(Exception e){
-                
-                e.getMessage();
-                
-            }
-            
-            
-            
-            
-            
-            
-            
-            
+        }catch(Exception e){
+            out.println("<h1>"+e.getMessage()+"</h1>");
         }
+       
     }
-    
-    
-    
-    
-    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

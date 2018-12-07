@@ -3,26 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Servlets;
 
-import interfaces.IPersistencia;
+
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import objetosNegocio.Cliente;
-import persistencia.PersistenciaBD;
 
 /**
  *
  * @author rob
  */
-@WebServlet(name = "consultasClientes", urlPatterns = {"/consultasClientes"})
-public class consultasCliente extends HttpServlet {
+@WebServlet(name = "rentas", urlPatterns = {"/rentas"})
+public class rentas extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,20 +33,8 @@ public class consultasCliente extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-
-            try {
-                RequestDispatcher rd;
-                IPersistencia bd = new PersistenciaBD();
-                Cliente cliente = bd.obten(new Cliente(request.getParameter("numCatalogo")));
-
-                request.setAttribute("cliente", cliente);
-                rd = request.getRequestDispatcher("deplegarCliente.jsp");
-
-                rd.forward(request, response);
-
-            } catch (Exception e) {
-                out.println("<h1>" + e.getMessage() + "</h1>");
-            }
+            /* TODO output your page here. You may use following sample code. */
+         
         }
     }
 

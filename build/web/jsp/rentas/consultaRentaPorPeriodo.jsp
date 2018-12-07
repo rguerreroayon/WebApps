@@ -14,7 +14,7 @@
 
     </head>
     <body>
-        <header>
+       <header>
             <nav class="navegacion">
                 <ul class="menu">
                     
@@ -36,16 +36,16 @@
                     
                     <li><a href="#">Inventario</a>
                         <ul class="submenu">
-                            <li><a href="../../jsp/inventario/videojuego.jsp" name="agregar">Agregar Videojuego al inventario</a></li>
-                            <li><a href="../../jsp/inventario/videojuego.jsp" name="quitar">Quitar Videojuego del inventario</a></li>
+                            <li><a href="../../jsp/inventario/desinventariar.jsp" name="agregar">Agregar Videojuego al inventario</a></li>
+                            <li><a href="../../jsp/inventario/inventariar.jsp" name="quitar">Quitar Videojuego del inventario</a></li>
                         </ul>
                     </li>
                     
                     <li><a href="#">Rentas</a>
 
                         <ul class="submenu">
-                            <li><a href="../../jsp/rentas/rentaDevolucion.jsp" name="renta">Renta de Videojuego</a></li>
-                            <li><a href="../../jsp/rentas/rentaDevolucion.jsp" name="devolucion">Devolver un Videojuego</a></li>
+                            <li><a href="../../jsp/rentas/renta.jsp">Renta de Videojuego</a></li>
+                            <li><a href="../../jsp/rentas/devolucion.jsp">Devolver un Videojuego</a></li>
                             <li><a href="../../jsp/rentas/consultaRentaPelicula.jsp">Consultar renta de película</a></li>
                             <li><a href="../../jsp/rentas/consultaRentaPorPeriodo.jsp">Consultar rentas por periodo de fecha</a></li>
                         </ul>
@@ -55,6 +55,7 @@
                 </ul>
             </nav>
         </header>
+<<<<<<< HEAD
         
         <section class="main">
             <section class="articles">
@@ -73,5 +74,8 @@
                 </form>
             </section>
         </section>
+=======
+
+>>>>>>> ce334e400ec3df7e9e12e3b90d3c1fbda4f3892e
     </body>
 </html>
