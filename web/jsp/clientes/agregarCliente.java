@@ -36,7 +36,7 @@ public class agregarCliente extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        IPersistencia fachada = new PersistenciaBD();
+        //IPersistencia fachada = new PersistenciaBD();
         
         try{
             
@@ -46,7 +46,7 @@ public class agregarCliente extends HttpServlet {
             String telefono = request.getParameter("telefono");
         
             
-            fachada.agregar(new Cliente(numCredencial, nombre, direccion, telefono));
+           // fachada.agregar(new Cliente(numCredencial, nombre, direccion, telefono));
             
             out.println("<h1>Cliente agregado correctamente</h1>");
             

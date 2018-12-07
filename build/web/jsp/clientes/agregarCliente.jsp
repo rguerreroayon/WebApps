@@ -57,6 +57,8 @@
 
         <section class="main">
             <section class="articles">
+                
+               
                 <form action="agregarCliente">
                     <h5>Agregar Clientes</h5>
                     <br>
@@ -71,7 +73,7 @@
                     <input type="text" name="direccion" pattern="[a-Z]+{35}">
                     
                     <p>Teléfono:</p>
-                    <input type="text" name="telefono" pattern="[0-9]{15}">
+                    <input type="text" name="telefono" pattern="[0-9]{10}">
                     <br>
 
                     <input type="submit" value="Enviar" />
